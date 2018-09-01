@@ -1,24 +1,37 @@
 <template>
 
-  <div class="hello">
-
-  {{response}}
-  
-      <div v-bind:class = "{activecss: isActive === 1}"
-      <p> {{text.toUpperCase()}} </p>
-      <label> First Name </label>
-      <input v-model="firstName"> <br>
-      <label> Last Name </label>
-      <input v-model="lastName"> <br>
-      <label> Account Number </label>
-      <input v-model="accountNumber"> <br>
-      <p> </p>
-      <button @click="postAPI" >Submit</button>
-  </div>
+    <form>
+      <div class="form-group row">
+        <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" v-model="firstName" class="form-control" id="firstName" placeholder="First Name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputLastName"  class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" v-model="lastName" class="form-control" id="lastName" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputAccountNumber" class="col-sm-2 col-form-label">Account Number</label>
+        <div class="col-sm-10">
+          <input type="text" v-model="accountNumber" class="form-control" id="accountNumber" placeholder="Account Number">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" @click="postAPI" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+      
 </template>
 
 <script>
 import axios from 'axios'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'HelloWorld',
@@ -27,25 +40,10 @@ export default {
       firstName: '',
       lastName: '',
       accountNumber: '',
-      msg: 'Wee.js App',
-      seen: true,
-      text: 'Creating Account',
-      isActive: 1
     }
   },
   methods: {
-    callAPI: function() {
-      axios.get("/getAll").then(response => {
-        this.response = response.data;
-      }).catch(e =>  1)
-    },
-
-    deleteAPI: function() {
-      axios.post("/delete?id=" + 7 ).then(response => {
-        alert("done")
-      }).catch( e => 1);
-    },
-
+    
     postAPI: function() {
         const that = this;
         axios.post("/create", {
@@ -58,25 +56,3 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: blue;  
-}
-.activecss {
-  color: red;
-}
-
-
-</style>
