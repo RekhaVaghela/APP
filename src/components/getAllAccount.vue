@@ -72,8 +72,9 @@ export default {
 
       deleteAPI: function(id) {
         axios.delete("/delete/" + id ).then(response => {
-          alert("Account Deleted")
-        }).catch( e => 1);
+        alert("Account Deleted")
+          }).catch( e => 1);
+          location.reload();
       },
 
       updateAPI: function(id) {
@@ -84,6 +85,7 @@ export default {
           lastName: that.lastName,
           accountNumber: parseInt(that.accountNumber),
           }).then((r) => {alert("Account Updated")}).catch((e) => {});
+          location.reload();
       },
       
       setModalValues: function() {

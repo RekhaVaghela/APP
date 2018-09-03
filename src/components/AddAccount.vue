@@ -52,6 +52,7 @@ export default {
       lastName: that.lastName,
       accountNumber: parseInt(that.accountNumber)
       }).then((r) => {alert("Account Created")}).catch((e) => {});
+      location.reload();
     }
   }
 }
