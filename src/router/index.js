@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import AddAccount from '@/components/AddAccount'
 import getAllAccount from '@/components/getAllAccount'
-import tester from '@/components/tester'
+
 
 Vue.use(Router)
 
@@ -24,10 +24,5 @@ export default new Router({
       name: 'getAllAccount',
       component: getAllAccount
     },
-    {
-      path: '/tester',
-      name: 'tester',
-      component: tester
-    }
   ]
 })

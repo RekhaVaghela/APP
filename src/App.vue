@@ -2,10 +2,11 @@
   <div id="app">
   <h1> Welcome To AccountApp </h1>
   <hr>
-  <router-link to ="/">Home</router-link>
-  <router-link to ="/add">Add New Account</router-link>
-  <router-link to ="/getAllAccount">All Accounts</router-link>
-  <router-link to ="/tester">tester</router-link>
+  <div>
+    <router-link style="position:relative; left:-10%" to ="/">Home</router-link>
+    <router-link to ="/add">Add New Account</router-link>
+    <router-link style="position:relative; right: -10%" to ="/getAllAccount">All Accounts</router-link>
+  </div>
   <hr>
   <router-view></router-view>
   </div>
@@ -28,6 +29,9 @@ export default {
 }
 
 h1{
-  color: blue;
+  color: black;
+}
+hr{
+  color: black;
 }
 </style>
